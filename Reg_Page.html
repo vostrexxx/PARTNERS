@@ -48,20 +48,40 @@
     </form>
 
     <script>
-        document.getElementById("registrationForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            // Предотвращаем стандартное поведение формы для отправки данных на сервер
+         document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение формы для отправки данных на сервер
 
-            // Получение значений полей формы
-            var username = document.getElementById("username").value;
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
+        // Получаем значения полей формы
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
 
-            // Ваш код для отправки данных на сервер и их обработки
-            // Например, можно использовать AJAX или Fetch API
+        // Формируем объект данных для отправки на сервер
+        var formData = {
+            username: username,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword
+        };
+
+        // Отправляем данные на сервер с использованием AJAX
+        // В этом примере используется библиотека jQuery для упрощения AJAX-запроса
+        $.ajax({
+            type: "POST", // Тип запроса (POST)
+            url: "/api/register", // URL, куда будет отправлен запрос на сервере
+            contentType: "application/json; charset=utf-8", // Тип передаваемых данных
+            data: JSON.stringify(formData), // Преобразуем объект в строку JSON
+            success: function(response) {
+                // Обработка успешного ответа от сервера
+                console.log("Успешная регистрация", response);
+            },
+            error: function(error) {
+                // Обработка ошибок
+                console.error("Ошибка регистрации", error);
+            }
         });
+    });
     </script>
-    <!-- JavaScript-код для предотвращения стандартной отправки формы и обработки данных на стороне клиента -->
 </body>
 </html>
