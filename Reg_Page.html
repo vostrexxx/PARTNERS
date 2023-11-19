@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <!-- Устанавливаем базовые мета-теги и заголовок страницы -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Простые стили для улучшения внешнего вида формы */
+    </style>
+</head>
+<body>
+    <form id="registrationForm">
+        <!-- Создаем форму с уникальным идентификатором "registrationForm" -->
+        <label for="username">Имя пользователя:</label>
+        <!-- Поле для ввода имени пользователя -->
+        <input type="text" id="username" name="username" required>
+        <!-- Текстовое поле с типом "text", уникальным идентификатором "username" и обязательным заполнением -->
+
+        <label for="email">Электронная почта:</label>
+        <!-- Поле для ввода электронной почты -->
+        <input type="email" id="email" name="email" required>
+        <!-- Текстовое поле с типом "email", уникальным идентификатором "email" и обязательным заполнением -->
+
+        <label for="password">Пароль:</label>
+        <!-- Поле для ввода пароля -->
+        <input type="password" id="password" name="password" required>
+        <!-- Текстовое поле с типом "password", уникальным идентификатором "password" и обязательным заполнением -->
+
+        <label for="confirmPassword">Подтверждение пароля:</label>
+        <!-- Поле для подтверждения пароля -->
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <!-- Текстовое поле с типом "password", уникальным идентификатором "confirmPassword" и обязательным заполнением -->
+
+        <button type="submit">Зарегистрироваться</button>
+        <!-- Кнопка отправки формы -->
+    </form>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Предотвращаем стандартное поведение формы для отправки данных на сервер
+
+            // Получение значений полей формы
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Ваш код для отправки данных на сервер и их обработки
+            // Например, можно использовать AJAX или Fetch API
+        });
+    </script>
+    <!-- JavaScript-код для предотвращения стандартной отправки формы и обработки данных на стороне клиента -->
+</body>
+</html>
